@@ -18,20 +18,6 @@ fil:
     close_popup_title: Isara ang popup
     close_filter_title: Isara ang filter
     close_form_title: Isara ang form
-    boards:
-      upsale:
-        teaser_text: Improve your agile project management with this flexible Boards
-          view. Create as many boards as you like for anything you would like to keep
-          track of.
-        upgrade_to_ee_text: Boards is an Enterprise feature. Please upgrade to a paid
-          plan.
-        upgrade: Upgrade now
-        personal_demo: Get a personal demo
-      lists:
-        delete: Delete list
-        edit_version: Edit version
-      add:
-        create_new: Create new
     card:
       add_new: Add new card
       highlighting:
@@ -80,7 +66,7 @@ fil:
       too_many: There are more work packages (%{count}) than can be displayed by the
         calendar (%{max}). Add filters to focus on the relevant ones.
     description_available_columns: Ang mga hanay na magagamit
-    description_current_position: 'Nandito ka na:'
+    description_current_position: 'You are here: '
     description_select_work_package: 'Piliin ang work package #%{id}'
     description_selected_columns: Napiling mga hanay
     description_subwork_package: 'Bata ng work package #%{id}'
@@ -193,6 +179,17 @@ fil:
           title: Ang mga work package
         work_packages_calendar:
           title: Kalendaryo
+    homescreen:
+      blocks:
+        new_features:
+          text_new_features: Read about new features and product updates.
+          current_new_feature_html: 'OpenProject contains a new <b>Boards view</b>
+            for Agile project management. </br> To activate this new feature for your
+            existing projects, please do the following steps: <ul><li>Activate the
+            module Boards within existing projects'' settings.</li> <li>Configure
+            your Boards in a project.</li> <li>Verify roles and permissions</li></ul>'
+          image_alt_text: Board teaser image
+          learn_about: Learn more about Agile Boards
     label_activate: Aktibo
     label_activity_no: Bilang ng aktibidad entry %{activityNo}
     label_activity_with_comment_no: Bilang ng aktibidad entry %{activityNo}. Mayroong
@@ -218,6 +215,7 @@ fil:
     label_board_locked: Naka-lock
     label_board_plural: Boards
     label_board_sticky: Malagkit
+    label_create_new: Create new
     label_create_work_package: Lumikha ng bagong work package
     label_created_by: Nilikha ni
     label_date: Petsa
@@ -515,7 +513,7 @@ fil:
       abort: Huwag ituloy
     relations_autocomplete:
       placeholder: Ipasok ang Id ng kauganay sa work package
-      parent_placeholder: Choose new parent, press enter to unset, escape to cancel.
+      parent_placeholder: Choose new parent or press escape to cancel.
     repositories:
       select_tag: Pumiling ng tag
       select_branch: Pumili ng sangay

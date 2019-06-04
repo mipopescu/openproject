@@ -92,7 +92,11 @@ export class CreateAutocompleterComponent implements AfterViewInit {
   @Input() public set createAllowed(val:boolean) {
     this._createAllowed = val;
     setTimeout(() => {
-      if (this.openDirectly) { this.openSelect(); }
+      if (this.openDirectly) {
+        this.openSelect();
+        this.openDirectly = false;
+      }
+      this.ngAfterViewInit();
     });
   }
 
@@ -104,7 +108,7 @@ export class CreateAutocompleterComponent implements AfterViewInit {
   @Output() public onAfterViewInit = new EventEmitter<CreateAutocompleterComponent>();
 
   public text:any = {
-    add_new_action: this.I18n.t('js.label_create_new'),
+    add_new_action: this.I18n.t('js.label_create'),
   };
 
   private _createAllowed:boolean = false;
@@ -123,6 +127,10 @@ export class CreateAutocompleterComponent implements AfterViewInit {
     this.createAllowed ? this.addAutoCompleter.open() : this.autoCompleter.open();
   }
 
+  public closeSelect() {
+    this.createAllowed ? this.addAutoCompleter.close() : this.autoCompleter.close();
+  }
+
   public createNewElement(newElement:string) {
     this.create.emit(newElement);
   }
@@ -136,6 +144,7 @@ export class CreateAutocompleterComponent implements AfterViewInit {
   }
 
   public closed() {
+    this.openDirectly = false;
     this.onClose.emit();
   }
 
@@ -153,7 +162,7 @@ export class CreateAutocompleterComponent implements AfterViewInit {
 
   public set openDirectly(val:boolean) {
     this._openDirectly = val;
-    this.openSelect();
+    if (val) { this.openSelect(); }
   }
 
   public focusInputField() {

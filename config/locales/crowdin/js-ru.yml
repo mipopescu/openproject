@@ -18,19 +18,6 @@ ru:
     close_popup_title: Закрыть всплывающее
     close_filter_title: Закрыть фильтр
     close_form_title: Закрыть форму
-    boards:
-      upsale:
-        teaser_text: Улучшите управляемость agile-проекта гибким просмотром досок.
-          Создайте сколько захотите досок для отслеживания.
-        upgrade_to_ee_text: Boards это функционал предприятия. Пожалуйста, обновитесь
-          до платного плана.
-        upgrade: Обновить сейчас
-        personal_demo: Получить личное демо
-      lists:
-        delete: Удалить список
-        edit_version: Изменить версию
-      add:
-        create_new: Создать новое
     card:
       add_new: Добавить новую карточку
       highlighting:
@@ -79,7 +66,7 @@ ru:
       too_many: Пакетов работ больше (%{count}), чем может быть показано в календаре
         (%{max}). Отфильтруйте пакеты, чтобы сфокусироваться на нужных.
     description_available_columns: Доступные столбцы
-    description_current_position: 'Вы находитесь здесь:'
+    description_current_position: 'Вы здесь: '
     description_select_work_package: 'Выберите пакет работ #%{id}'
     description_selected_columns: Выбранные столбцы
     description_subwork_package: 'Потомок пакета работ #%{id}'
@@ -196,6 +183,17 @@ ru:
           title: Пакеты работ
         work_packages_calendar:
           title: Календарь
+    homescreen:
+      blocks:
+        new_features:
+          text_new_features: Read about new features and product updates.
+          current_new_feature_html: 'OpenProject contains a new <b>Boards view</b>
+            for Agile project management. </br> To activate this new feature for your
+            existing projects, please do the following steps: <ul><li>Activate the
+            module Boards within existing projects'' settings.</li> <li>Configure
+            your Boards in a project.</li> <li>Verify roles and permissions</li></ul>'
+          image_alt_text: Board teaser image
+          learn_about: Learn more about Agile Boards
     label_activate: Активировать
     label_activity_no: Деятельность номер %{activityNo}
     label_activity_with_comment_no: Деятельность номер %{activityNo}. Есть комментарий
@@ -221,6 +219,7 @@ ru:
     label_board_locked: Заперто
     label_board_plural: Доски
     label_board_sticky: Стикер
+    label_create_new: Создать новое
     label_create_work_package: Создать новый пакет работ
     label_created_by: Автор
     label_date: Дата
@@ -512,8 +511,7 @@ ru:
       abort: Прервать
     relations_autocomplete:
       placeholder: Внести Id cвязанного пакета работ
-      parent_placeholder: Выберите нового родителя, нажмите ввод для снятия, escape
-        для отмены
+      parent_placeholder: Выберите нового родителя или нажмите кнопку "Отменить".
     repositories:
       select_tag: Выберите тег
       select_branch: Выберите ветвь
@@ -905,7 +903,7 @@ ru:
         one: пакет работ
         other: пакеты работ
         few: пакеты работ
-        many: work packages
+        many: пакетов работ
       child_work_packages:
         one: пакет работ с одним дочерним
         other: пакет работ с %{count} дочерними

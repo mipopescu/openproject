@@ -654,7 +654,12 @@ th:
               error_not_found: not found
         member:
           principal_blank: โปรดเลือกอย่างน้อยหนึ่งผู้ใช้หรือหนึ่งกลุ่ม
-          role_blank: โปรดเลือกอย่างน้อยหนึ่งบทบาท
+          role_blank: need to be assigned.
+          attributes:
+            roles:
+              ungrantable: has an unassignable role.
+            principal:
+              unassignable: cannot be assigned to a project.
         version:
           undeletable_work_packages_attached: The version cannot be deleted as it
             has work packages attached to it.
@@ -1004,7 +1009,7 @@ th:
   description_choose_project: โครงการ
   description_compare_from: เปรียบเทียบจาก
   description_compare_to: เปรียบเทียบ
-  description_current_position: 'คุณอยู่ที่นี่:'
+  description_current_position: 'You are here: '
   description_date_from: ระบุวันเริ่มต้น
   description_date_range_interval: เลือกช่วง โดยเลือกวันเริ่มต้นและสิ้นสุด
   description_date_range_list: เลือกช่วงจากรายการ
@@ -1464,6 +1469,7 @@ th:
   label_my_queries: แบบสอบถามแบบกำหนดเองของฉัน
   label_never: Never
   label_new: ใหม่
+  label_new_features: New features
   label_new_statuses_allowed: อนุญาติให้ใช้สถานะใหม่แล้ว
   label_news_added: เพิ่มข่าวแล้ว
   label_news_comment_added: เพิ่มความเห็นไปยังข่าวแล้ว

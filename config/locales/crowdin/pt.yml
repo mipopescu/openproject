@@ -673,7 +673,12 @@ pt:
               error_not_found: não encontrado
         member:
           principal_blank: Por favor, escolha pelo menos um utilizador ou grupo.
-          role_blank: Por favor, escolha pelo menos um papel.
+          role_blank: need to be assigned.
+          attributes:
+            roles:
+              ungrantable: has an unassignable role.
+            principal:
+              unassignable: cannot be assigned to a project.
         version:
           undeletable_work_packages_attached: The version cannot be deleted as it
             has work packages attached to it.
@@ -1027,7 +1032,7 @@ pt:
   description_choose_project: Projetos
   description_compare_from: Comparar de
   description_compare_to: Comparar com
-  description_current_position: 'Você está aqui:'
+  description_current_position: 'You are here: '
   description_date_from: Data de início
   description_date_range_interval: Escolha o intervalo selecionando a data inicial
     e final
@@ -1506,6 +1511,7 @@ pt:
   label_my_queries: As minhas consultas personalizadas
   label_never: Nunca
   label_new: Novo
+  label_new_features: New features
   label_new_statuses_allowed: Permitidos novos estados
   label_news_added: Notícia adicionada
   label_news_comment_added: Comentário adicionado às notícias

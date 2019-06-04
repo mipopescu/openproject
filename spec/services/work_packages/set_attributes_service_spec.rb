@@ -75,7 +75,7 @@ describe WorkPackages::SetAttributesService, type: :model do
   let(:work_package_valid) { true }
   let(:instance) do
     described_class.new(user: user,
-                        work_package: work_package,
+                        model: work_package,
                         contract_class: mock_contract)
   end
 
@@ -244,16 +244,19 @@ describe WorkPackages::SetAttributesService, type: :model do
         let(:attributes) { {} }
         let(:work_package) { new_work_package }
 
-        before do
-          work_package.author = nil
-        end
-
         it_behaves_like 'service call' do
           it "sets the service's author" do
             subject
 
             expect(work_package.author)
               .to eql user
+          end
+
+          it 'notes the author to be system changed' do
+            subject
+
+            expect(work_package.changed_by_system)
+              .to include('author_id')
           end
         end
       end
@@ -307,7 +310,7 @@ describe WorkPackages::SetAttributesService, type: :model do
       let(:user) { FactoryBot.build_stubbed(:admin) }
       let(:instance) do
         described_class.new(user: user,
-                            work_package: invalid_wp,
+                            model: invalid_wp,
                             contract_class: contract_class)
       end
 
@@ -554,6 +557,13 @@ describe WorkPackages::SetAttributesService, type: :model do
               expect(work_package.category)
                 .to eql new_category
             end
+
+            it 'adds change to system changes' do
+              subject
+
+              expect(work_package.changed_by_system)
+                .to include('category_id')
+            end
           end
         end
 
@@ -576,6 +586,13 @@ describe WorkPackages::SetAttributesService, type: :model do
               expect(work_package.type)
                 .to eql default_type
             end
+
+            it 'adds change to system changes' do
+              subject
+
+              expect(work_package.changed_by_system)
+                .to include('type_id')
+            end
           end
 
           context 'no default type exists in new project' do
@@ -587,6 +604,13 @@ describe WorkPackages::SetAttributesService, type: :model do
               expect(work_package.type)
                 .to eql other_type
             end
+
+            it 'adds change to system changes' do
+              subject
+
+              expect(work_package.changed_by_system)
+                .to include('type_id')
+            end
           end
 
           context 'when also setting a new type via attributes' do
@@ -597,6 +621,13 @@ describe WorkPackages::SetAttributesService, type: :model do
 
               expect(work_package.type)
                 .to eql yet_another_type
+            end
+
+            it 'does not set the change to system changes' do
+              subject
+
+              expect(work_package.changed_by_system)
+                .not_to include('type_id')
             end
           end
         end

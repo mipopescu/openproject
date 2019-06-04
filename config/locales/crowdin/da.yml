@@ -659,7 +659,12 @@ da:
               error_not_found: not found
         member:
           principal_blank: Vælg venligst mindst én bruger eller gruppe.
-          role_blank: Vælg venligst mindst én rolle.
+          role_blank: need to be assigned.
+          attributes:
+            roles:
+              ungrantable: has an unassignable role.
+            principal:
+              unassignable: cannot be assigned to a project.
         version:
           undeletable_work_packages_attached: The version cannot be deleted as it
             has work packages attached to it.
@@ -1009,7 +1014,7 @@ da:
   description_choose_project: Projekter
   description_compare_from: Sammenlign fra
   description_compare_to: Sammenlign med
-  description_current_position: 'Du er her:'
+  description_current_position: 'You are here: '
   description_date_from: Indtast startdato
   description_date_range_interval: Fastsæt interval ved at vælge start- og slutdato
   description_date_range_list: Fastsæt interval fra liste
@@ -1477,6 +1482,7 @@ da:
   label_my_queries: Mine selvvalgte forespørgsler
   label_never: Aldrig
   label_new: Ny
+  label_new_features: New features
   label_new_statuses_allowed: Nye statuser tilladt
   label_news_added: Nyheder tilføjet
   label_news_comment_added: Kommentar tilføjet til en nyhed

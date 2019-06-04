@@ -100,7 +100,7 @@ describe WorkPackages::UpdateService, 'integration tests', type: :model do
   end
   let(:instance) do
     described_class.new(user: user,
-                        work_package: work_package)
+                        model: work_package)
   end
 
   subject do
@@ -313,7 +313,6 @@ describe WorkPackages::UpdateService, 'integration tests', type: :model do
             it 'uses the first type' do
               expect(subject)
                 .to be_success
-
 
               expect(subject.result.type)
                 .to eql other_type

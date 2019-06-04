@@ -31,10 +31,8 @@ class MailHandler < ActionMailer::Base
   include ActionView::Helpers::SanitizeHelper
   include Redmine::I18n
 
-  class UnauthorizedAction < StandardError;
-  end
-  class MissingInformation < StandardError;
-  end
+  class UnauthorizedAction < StandardError; end
+  class MissingInformation < StandardError; end
 
   attr_reader :email, :user
 
@@ -511,7 +509,7 @@ class MailHandler < ActionMailer::Base
 
     service_call = WorkPackages::UpdateService
                    .new(user: user,
-                        work_package: work_package,
+                        model: work_package,
                         contract_class: work_package_update_contract_class)
                    .call(attributes.symbolize_keys)
 

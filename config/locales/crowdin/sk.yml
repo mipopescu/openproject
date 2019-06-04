@@ -678,7 +678,12 @@ sk:
               error_not_found: nenájdené
         member:
           principal_blank: Vyberte aspoň jedného používateľa alebo skupinu.
-          role_blank: Vyberte aspoň jednu rolu.
+          role_blank: need to be assigned.
+          attributes:
+            roles:
+              ungrantable: has an unassignable role.
+            principal:
+              unassignable: cannot be assigned to a project.
         version:
           undeletable_work_packages_attached: The version cannot be deleted as it
             has work packages attached to it.
@@ -1056,7 +1061,7 @@ sk:
   description_choose_project: Projekty
   description_compare_from: Porovnať od
   description_compare_to: Porovnať s
-  description_current_position: 'Nachádzate sa tu:'
+  description_current_position: 'You are here: '
   description_date_from: Zadajte počiatočný dátum
   description_date_range_interval: Vybrať rozsah zvolením počiatočného a koncového
     dátumu
@@ -1529,6 +1534,7 @@ sk:
   label_my_queries: Moje vlastné dopyty
   label_never: Nikdy
   label_new: Nový
+  label_new_features: New features
   label_new_statuses_allowed: Nové stavy povolené
   label_news_added: Novinky pridané
   label_news_comment_added: Komentár pridaný do Novinky

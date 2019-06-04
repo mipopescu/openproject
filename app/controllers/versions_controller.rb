@@ -100,7 +100,7 @@ class VersionsController < ApplicationController
 
     call = Versions::UpdateService
            .new(user: current_user,
-                version: @version)
+                model: @version)
            .call(attributes)
 
     if call.success?
@@ -121,7 +121,7 @@ class VersionsController < ApplicationController
   def destroy
     call = Versions::DeleteService
            .new(user: current_user,
-                version: @version)
+                model: @version)
            .call
 
     unless call.success?
@@ -144,10 +144,14 @@ class VersionsController < ApplicationController
   end
 
   def retrieve_selected_type_ids(selectable_types, default_types = nil)
-    @selected_type_ids = if (ids = params[:type_ids])
-                           ids.is_a?(Array) ? ids : ids.split('/')
-                         else
-                           default_types || selectable_types
-                         end.map { |t| t.id.to_s }
+    @selected_type_ids = selected_type_ids selectable_types, default_types
+  end
+
+  def selected_type_ids(selectable_types, default_types = nil)
+    if (ids = params[:type_ids])
+      ids.is_a?(Array) ? ids.map(&:to_s) : ids.split('/')
+    else
+      (default_types || selectable_types).map { |t| t.id.to_s }
+    end
   end
 end

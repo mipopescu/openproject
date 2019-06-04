@@ -47,16 +47,6 @@ en:
     close_filter_title: "Close filter"
     close_form_title: "Close form"
 
-    boards:
-      upsale:
-        teaser_text: 'Improve your agile project management with this flexible Boards view. Create as many boards as you like for anything you would like to keep track of.'
-        upgrade_to_ee_text: 'Boards is an Enterprise feature. Please upgrade to a paid plan.'
-        upgrade: 'Upgrade now'
-        personal_demo: 'Get a personal demo'
-      lists:
-        delete: 'Delete list'
-        edit_version: 'Edit version'
-
     card:
       add_new: 'Add new card'
       highlighting:
@@ -107,7 +97,7 @@ en:
       too_many: 'There are more work packages (%{count}) than can be displayed by the calendar (%{max}). Add filters to focus on the relevant ones.'
 
     description_available_columns: "Available Columns"
-    description_current_position: "You are here:"
+    description_current_position: "You are here: "
     description_select_work_package: "Select work package #%{id}"
     description_selected_columns: "Selected Columns"
     description_subwork_package: "Child of work package #%{id}"
@@ -218,6 +208,17 @@ en:
         work_packages_calendar:
           title: 'Calendar'
 
+    homescreen:
+      blocks:
+        new_features:
+          text_new_features: "Read about new features and product updates."
+          current_new_feature_html: "OpenProject contains a new <b>Boards view</b> for Agile project management. </br>
+                                     To activate this new feature for your existing projects, please do the following steps:
+                                      <ul><li>Activate the module Boards within existing projects' settings.</li>
+                                      <li>Configure your Boards in a project.</li>
+                                      <li>Verify roles and permissions</li></ul>"
+          image_alt_text: "Board teaser image"
+          learn_about: "Learn more about Agile Boards"
     label_activate: "Activate"
     label_activity_no: "Activity entry number %{activityNo}"
     label_activity_with_comment_no: "Activity entry number %{activityNo}. Has a user comment."
@@ -242,7 +243,7 @@ en:
     label_board_locked: "Locked"
     label_board_plural: "Boards"
     label_board_sticky: "Sticky"
-    label_create_new: "Create new"
+    label_create: "Create"
     label_create_work_package: "Create new work package"
     label_created_by: "Created by"
     label_date: "Date"
@@ -421,7 +422,9 @@ en:
       relation_description: 'Click to add description for this relation'
 
     project:
-      required_outside_context: 'You are not within a project context. Please choose the project context first in order to select type and status'
+      required_outside_context: >
+        Please choose a project to create the work package in to see all attributes.
+        You can only select projects which have the type above activated.
       context: 'Project context'
       work_package_belongs_to: 'This work package belongs to project %{projectname}.'
       click_to_switch_context: 'Open this work package in that project.'

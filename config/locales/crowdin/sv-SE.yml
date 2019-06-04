@@ -662,7 +662,12 @@ sv-SE:
               error_not_found: hittades inte
         member:
           principal_blank: Välj minst en användare eller grupp.
-          role_blank: Välj minst en roll.
+          role_blank: need to be assigned.
+          attributes:
+            roles:
+              ungrantable: has an unassignable role.
+            principal:
+              unassignable: cannot be assigned to a project.
         version:
           undeletable_work_packages_attached: The version cannot be deleted as it
             has work packages attached to it.
@@ -1011,7 +1016,7 @@ sv-SE:
   description_choose_project: Projekt
   description_compare_from: Jämför formulär
   description_compare_to: Jämför med
-  description_current_position: 'Du är här:'
+  description_current_position: 'You are here: '
   description_date_from: Ange startdatum
   description_date_range_interval: Välj intervall genom att välja start- och slutdatum
   description_date_range_list: Välj intervall i listan
@@ -1479,6 +1484,7 @@ sv-SE:
   label_my_queries: Min anpassade frågor
   label_never: Aldrig
   label_new: Ny
+  label_new_features: New features
   label_new_statuses_allowed: Nya statusar tillåtna
   label_news_added: Nyheter tillagda
   label_news_comment_added: Kommentar tillagd till en nyhet

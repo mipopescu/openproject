@@ -85,7 +85,7 @@ export class SelectEditFieldComponent extends EditFieldComponent implements OnIn
       .subscribe(() => {
         loadingPromise.then(() => {
           this._autocompleterComponent.openDirectly = true;
-        })
+        });
       });
   }
 
@@ -129,13 +129,18 @@ export class SelectEditFieldComponent extends EditFieldComponent implements OnIn
     if (Array.isArray(allowedValues)) {
       this.setValues(allowedValues);
     } else if (allowedValues) {
-      return allowedValues.$load().then((values:CollectionResource) => {
+      return allowedValues.$load(false).then((values:CollectionResource) => {
         this.setValues(values.elements);
       });
     } else {
       this.setValues([]);
     }
     return Promise.resolve();
+  }
+
+  private addValue(val:HalResource) {
+    this.options.push(val);
+    this.valueOptions.push({name: val.name, $href: val.$href});
   }
 
   public get currentValueInvalid():boolean {
@@ -147,7 +152,7 @@ export class SelectEditFieldComponent extends EditFieldComponent implements OnIn
   }
 
   public onCreate(newElement:HalResource) {
-    this.options.push(newElement);
+    this.addValue(newElement);
     this.selectedOption = { name: newElement.name, $href: newElement.$href };
     this.handler.handleUserSubmit();
   }

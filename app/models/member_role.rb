@@ -89,7 +89,7 @@ class MemberRole < ActiveRecord::Base
   def remove_role_from_group_users
     inherited_roles_by_member = MemberRole
                                 .where(inherited_from: id)
-                                .includes(member: [:user, :member_roles])
+                                .includes(member: %i[principal member_roles])
                                 .group_by(&:member)
 
     inherited_roles_by_member.each do |member, member_roles|
@@ -98,7 +98,7 @@ class MemberRole < ActiveRecord::Base
       end
     end
 
-    users = inherited_roles_by_member.keys.map(&:user)
+    users = inherited_roles_by_member.keys.map(&:principal)
 
     Watcher.prune(user: users, project_id: member.project_id) unless users.empty?
   end

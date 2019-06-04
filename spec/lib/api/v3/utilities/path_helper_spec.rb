@@ -129,9 +129,15 @@ describe ::API::V3::Utilities::PathHelper do
   end
 
   describe '#available_projects_on_create' do
-    subject { helper.available_projects_on_create }
+    subject { helper.available_projects_on_create(nil) }
 
     it_behaves_like 'api v3 path', '/work_packages/available_projects'
+  end
+
+  describe '#available_projects_on_create with type' do
+    subject { helper.available_projects_on_create(1) }
+
+    it_behaves_like 'api v3 path', '/work_packages/available_projects?for_type=1'
   end
 
   describe '#categories' do
@@ -212,6 +218,36 @@ describe ::API::V3::Utilities::PathHelper do
     subject { helper.grid_form(42) }
 
     it_behaves_like 'api v3 path', '/grids/42/form'
+  end
+
+  describe '#memberships' do
+    subject { helper.memberships }
+
+    it_behaves_like 'api v3 path', '/memberships'
+  end
+
+  describe '#memberships_available_projects' do
+    subject { helper.memberships_available_projects }
+
+    it_behaves_like 'api v3 path', '/memberships/available_projects'
+  end
+
+  describe '#membership' do
+    subject { helper.membership(42) }
+
+    it_behaves_like 'api v3 path', '/memberships/42'
+  end
+
+  describe '#membership_schema' do
+    subject { helper.membership_schema }
+
+    it_behaves_like 'api v3 path', '/memberships/schema'
+  end
+
+  describe '#version_memberships_form' do
+    subject { helper.create_memberships_form }
+
+    it_behaves_like 'api v3 path', '/memberships/form'
   end
 
   describe '#message' do
@@ -592,6 +628,12 @@ describe ::API::V3::Utilities::PathHelper do
     subject { helper.versions }
 
     it_behaves_like 'api v3 path', '/versions'
+  end
+
+  describe '#versions_available_projects' do
+    subject { helper.versions_available_projects }
+
+    it_behaves_like 'api v3 path', '/versions/available_projects'
   end
 
   describe '#versions_by_project' do

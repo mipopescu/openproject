@@ -32,12 +32,13 @@ class Role < ActiveRecord::Base
   extend Pagination::Model
 
   # Built-in roles
+  NON_BUILTIN = 0
   BUILTIN_NON_MEMBER = 1
   BUILTIN_ANONYMOUS  = 2
 
   scope :builtin, ->(*args) {
     compare = 'not' if args.first == true
-    where("#{compare} builtin = 0")
+    where("#{compare} builtin = #{NON_BUILTIN}")
   }
 
   before_destroy :check_deletable
@@ -62,7 +63,9 @@ class Role < ActiveRecord::Base
   validates_length_of :name, maximum: 30
 
   def self.givable
-    where('builtin = 0').order(Arel.sql('position'))
+    where(builtin: NON_BUILTIN)
+      .where(type: 'Role')
+      .order(Arel.sql('position'))
   end
 
   def permissions
@@ -111,7 +114,7 @@ class Role < ActiveRecord::Base
 
   # Return true if the role is a builtin role
   def builtin?
-    builtin != 0
+    builtin != NON_BUILTIN
   end
 
   # Return true if the role is a project member role
@@ -129,19 +132,6 @@ class Role < ActiveRecord::Base
     else
       allowed_permissions.include? action
     end
-  end
-
-  # Return all the permissions that can be given to the role
-  def setable_permissions
-    setable_permissions = Redmine::AccessControl.permissions - Redmine::AccessControl.public_permissions
-    setable_permissions -= Redmine::AccessControl.members_only_permissions if builtin == BUILTIN_NON_MEMBER
-    setable_permissions -= Redmine::AccessControl.loggedin_only_permissions if builtin == BUILTIN_ANONYMOUS
-    setable_permissions
-  end
-
-  # Find all the roles that can be given to a project member
-  def self.find_all_givable
-    where(builtin: 0).order(Arel.sql('position'))
   end
 
   # Return the builtin 'non member' role.  If the role doesn't exist,
@@ -183,12 +173,12 @@ class Role < ActiveRecord::Base
   private
 
   def allowed_permissions
-    @allowed_permissions ||= permissions + Redmine::AccessControl.public_permissions.map(&:name)
+    @allowed_permissions ||= permissions + OpenProject::AccessControl.public_permissions.map(&:name)
   end
 
   def allowed_actions
     @actions_allowed ||= allowed_permissions.map do |permission|
-      Redmine::AccessControl.allowed_actions(permission)
+      OpenProject::AccessControl.allowed_actions(permission)
     end.flatten
   end
 
