@@ -36,13 +36,15 @@ class Status < ActiveRecord::Base
   has_many :workflows, foreign_key: 'old_status_id'
   acts_as_list
 
-  belongs_to :color, class_name:  'Color', foreign_key: 'color_id'
+  belongs_to :color, class_name: 'Color', foreign_key: 'color_id'
 
   before_destroy :delete_workflows
 
-  validates_presence_of :name
-  validates_uniqueness_of :name
-  validates_length_of :name, maximum: 30
+  validates :name,
+            presence: true,
+            uniqueness: { case_sensitive: false },
+            length: { maximum: 30 }
+
   validates_inclusion_of :default_done_ratio, in: 0..100, allow_nil: true
 
   after_save :unmark_old_default_value, if: :is_default?
