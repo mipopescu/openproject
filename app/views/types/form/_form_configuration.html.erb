@@ -30,7 +30,6 @@ See docs/COPYRIGHT.rdoc for more details.
 <% form_attributes = form_configuration_groups(@type) %>
 
 <section class="form--section">
-  <%= f.hidden_field :attribute_groups, value: attribute_groups_as_json(@type) %>
   <div>
     <div class="grid-block -visible-overflow wrap">
       <div class="grid-content -visible-overflow small-12 large-10">
@@ -74,7 +73,13 @@ See docs/COPYRIGHT.rdoc for more details.
         </div>
       <% end %>
         <% no_filter_query = ::API::V3::Queries::QueryParamsRepresenter.new(Query.new_default.tap { |q| q.filters = []}).to_json %>
-        <openproject-base></openproject-base>
+        <%= content_tag('admin-type-form-configuration',
+                        '',
+                        data: {
+                            'active-groups': form_attributes[:actives],
+                            'inactive-attributes': form_attributes[:inactives],
+                            'no-filter-query': no_filter_query
+                        }) %>
       </div>
     </div>
   </div>

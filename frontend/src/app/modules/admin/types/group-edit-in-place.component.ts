@@ -35,7 +35,6 @@ import {TypeBannerService} from 'core-app/modules/admin/types/type-banner.servic
 })
 export class GroupEditInPlaceComponent implements OnInit {
   @Input() public placeholder:string = '';
-  @Input('name') public originalName:string;
   @Input() public key:string;
 
   @Output() public onValueChange = new EventEmitter<string>();
@@ -48,7 +47,7 @@ export class GroupEditInPlaceComponent implements OnInit {
   }
 
   ngOnInit():void {
-    this.name = this.originalName;
+    this.name = this.key;
 
     if (!this.name || this.name.length === 0) {
       // Group name is empty so open in editing mode straight away.
@@ -59,15 +58,17 @@ export class GroupEditInPlaceComponent implements OnInit {
   startEditing() {
     this.bannerService.conditional(
       () => this.bannerService.showEEOnlyHint(),
-      () => this.editing = true
+      () => {
+        this.editing = true;
+      }
     );
   }
 
   saveEdition(event:KeyboardEvent) {
-    this.originalName = this.name;
+    this.key = this.name;
     this.name = this.name.trim();
     this.leaveEditingMode();
-    if (this.originalName !== this.name) {
+    if (this.key !== this.name) {
       this.onValueChange.emit(this.name);
     }
 
@@ -79,7 +80,7 @@ export class GroupEditInPlaceComponent implements OnInit {
 
   reset() {
     this.editing = false;
-    this.name = this.originalName;
+    this.name = this.key;
   }
 
   leaveEditingMode() {

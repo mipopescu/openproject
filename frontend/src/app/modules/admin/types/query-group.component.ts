@@ -8,10 +8,11 @@ import {I18nService} from "core-app/modules/common/i18n/i18n.service";
 export class TypeFormQueryGroupComponent {
 
   text = {
-    edit_query: this.I18n.t('js.form_configuration.edit_query')
+    edit_query: this.I18n.t('js.admin.type_form.edit_query')
   };
 
   @Input() public group:any;
+  @Output() public editQuery = new EventEmitter<void>();
   @Output() public deleteGroup = new EventEmitter<void>();
 
   constructor(readonly I18n:I18nService) {

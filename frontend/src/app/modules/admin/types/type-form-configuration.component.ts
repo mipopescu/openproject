@@ -10,6 +10,7 @@ import {Drake} from 'dragula';
 
 import {randomString} from 'core-app/helpers/random-string';
 import {GonService} from "core-app/modules/common/gon/gon.service";
+import {DynamicBootstrapper} from "core-app/globals/dynamic-bootstrapper";
 
 export type TypeGroupType = 'attribute'|'query';
 
@@ -20,11 +21,8 @@ export interface TypeFormAttribute {
 }
 
 export interface TypeGroup {
-  id:string|null;
   key:string;
-  originalKey:string;
-  translated_key:string;
-  name:string;
+  static_key:boolean;
   attributes:TypeFormAttribute[];
   query?:any;
   type:TypeGroupType;
@@ -77,6 +75,10 @@ export class TypeFormConfigurationComponent implements OnInit {
     this.form.on('submit.typeformupdater', () => {
       return !this.updateHiddenFields();
     });
+
+    // Get attribute id
+    this.groups = JSON.parse(this.element.dataset.activeGroups!);
+    this.inactives = JSON.parse(this.element.dataset.inactiveAttributes!);
 
     // Setup autoscroll
     const that = this;
@@ -207,15 +209,13 @@ export class TypeFormConfigurationComponent implements OnInit {
   }
 
   public createGroup(type:TypeGroupType, groupName:string = '') {
-    let draggableGroups:JQuery = jQuery('#draggable-groups');
     let randomId:string = randomString(8);
 
     let group:TypeGroup = {
       type: type,
-      name: groupName,
-      id: null,
       key: randomId,
-      originalKey: randomId
+      static_key: false,
+      attributes: [],
     };
 
     this.groups.unshift(group);
@@ -242,3 +242,5 @@ export class TypeFormConfigurationComponent implements OnInit {
     return false;
   }
 }
+
+DynamicBootstrapper.register({ cls: TypeFormConfigurationComponent, selector: 'admin-type-form-configuration'});

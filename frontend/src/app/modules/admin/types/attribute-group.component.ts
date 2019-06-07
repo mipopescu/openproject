@@ -18,7 +18,11 @@ export class TypeFormAttributeGroupComponent {
   }
 
   rename(newValue:string) {
-    this.group.name = newValue;
+    this.group = {
+      ...this.group,
+      key: newValue,
+      static_key: false
+    };
   }
 
   removeAttribute(attribute:TypeFormAttribute) {
