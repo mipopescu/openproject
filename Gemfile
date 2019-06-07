@@ -34,7 +34,7 @@ gem 'actionpack-xml_parser', '~> 2.0.0'
 gem 'activemodel-serializers-xml', '~> 1.0.1'
 gem 'activerecord-import', '~> 0.28.1'
 gem 'activerecord-session_store', '~> 1.1.0'
-gem 'rails', '~> 5.2.2.1'
+gem 'rails', '~> 6.0.0rc1'
 gem 'responders', '~> 2.4'
 
 gem 'rdoc', '>= 2.4.2'
@@ -50,11 +50,13 @@ gem 'warden-basic_auth', '~> 0.2.1'
 
 gem 'will_paginate', '~> 3.1.0'
 
-gem 'friendly_id', '~> 5.2.1'
+# Replace once friendly_id release supports rails 6
+gem 'friendly_id', git: 'https://github.com/norman/friendly_id', ref: '67422c04e1bfed4207b2a04826bc67ec0e231ce7'
 
 gem 'acts_as_list', '~> 0.9.9'
 gem 'acts_as_tree', '~> 2.8.0'
-gem 'awesome_nested_set', '~> 3.1.3'
+# Replace once release supports rails 6
+gem 'awesome_nested_set', git: 'https://github.com/collectiveidea/awesome_nested_set', ref: '7831531b10435c0387c702dc9fea7ba39629108a'
 gem 'rubytree', git: 'https://github.com/dr0verride/RubyTree.git', ref: '06f53ee'
 gem 'typed_dag', '~> 2.0.2'
 
@@ -105,7 +107,9 @@ gem 'multi_json', '~> 1.13.1'
 gem 'oj', '~> 3.7.0'
 
 gem 'daemons'
-gem 'delayed_job_active_record', '~> 4.1.1'
+gem 'delayed_job_active_record',
+    git: 'https://github.com/collectiveidea/delayed_job_active_record',
+    branch: "rails-6-compatibility"
 
 gem 'rack-protection', '~> 2.0.0'
 
@@ -175,7 +179,7 @@ gem 'aws-sdk-core', '~> 3.46.0'
 # File upload via fog + screenshots on travis
 gem 'aws-sdk-s3', '~> 1.30.1'
 
-gem 'openproject-token', '~> 1.0.1'
+gem 'openproject-token', '~> 1.0.2'
 
 gem 'plaintext', '~> 0.3.0'
 

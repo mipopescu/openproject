@@ -1,4 +1,21 @@
 GIT
+  remote: https://github.com/collectiveidea/awesome_nested_set
+  revision: 7831531b10435c0387c702dc9fea7ba39629108a
+  ref: 7831531b10435c0387c702dc9fea7ba39629108a
+  specs:
+    awesome_nested_set (3.1.4)
+      activerecord (>= 4.0.0)
+
+GIT
+  remote: https://github.com/collectiveidea/delayed_job_active_record
+  revision: d2ddcba45c2772418123306a40db880e3241c9fe
+  branch: rails-6-compatibility
+  specs:
+    delayed_job_active_record (4.1.4.beta1)
+      activerecord (>= 3.0, < 6.1)
+      delayed_job (>= 3.0, < 5)
+
+GIT
   remote: https://github.com/doorkeeper-gem/doorkeeper
   revision: ce969eee6c16aa8082b0c77ebb5968d9e9b6a57b
   ref: ce969eee6c16aa8082b0c77ebb5968d9e9b6a57b
@@ -46,6 +63,14 @@ GIT
     capybara-select2 (1.0.1)
       capybara
       rspec
+
+GIT
+  remote: https://github.com/norman/friendly_id
+  revision: 67422c04e1bfed4207b2a04826bc67ec0e231ce7
+  ref: 67422c04e1bfed4207b2a04826bc67ec0e231ce7
+  specs:
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
 
 GIT
   remote: https://github.com/opf/omniauth
@@ -121,7 +146,6 @@ PATH
   specs:
     openproject-bcf (1.0.0)
       activerecord-import
-      rails (~> 5)
       rubyzip (~> 1.2)
 
 PATH
@@ -208,7 +232,7 @@ PATH
   remote: modules/reporting
   specs:
     openproject-reporting (1.0.0)
-      jquery-tablesorter (~> 1.25.5)
+      jquery-tablesorter (~> 1.26.0)
       openproject-costs
       reporting_engine
 
@@ -235,19 +259,26 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.3)
-    actioncable (5.2.2.1)
-      actionpack (= 5.2.2.1)
+    actioncable (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
-    actionmailer (5.2.2.1)
-      actionpack (= 5.2.2.1)
-      actionview (= 5.2.2.1)
-      activejob (= 5.2.2.1)
+    actionmailbox (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
+      activestorage (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      mail (>= 2.7.1)
+    actionmailer (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      actionview (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (5.2.2.1)
-      actionview (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
+    actionpack (6.0.0.rc1)
+      actionview (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
       rack (~> 2.0)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
@@ -255,25 +286,30 @@ GEM
     actionpack-xml_parser (2.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    actionview (5.2.2.1)
-      activesupport (= 5.2.2.1)
+    actiontext (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
+      activestorage (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
+      nokogiri (>= 1.8.5)
+    actionview (6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    activejob (5.2.2.1)
-      activesupport (= 5.2.2.1)
+    activejob (6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
       globalid (>= 0.3.6)
-    activemodel (5.2.2.1)
-      activesupport (= 5.2.2.1)
+    activemodel (6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
     activemodel-serializers-xml (1.0.2)
       activemodel (> 5.x)
       activesupport (> 5.x)
       builder (~> 3.1)
-    activerecord (5.2.2.1)
-      activemodel (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
-      arel (>= 9.0)
+    activerecord (6.0.0.rc1)
+      activemodel (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
     activerecord-import (0.28.1)
       activerecord (>= 3.2)
     activerecord-nulldb-adapter (0.3.9)
@@ -284,15 +320,17 @@ GEM
       multi_json (~> 1.11, >= 1.11.2)
       rack (>= 1.5.2, < 3)
       railties (>= 4.0)
-    activestorage (5.2.2.1)
-      actionpack (= 5.2.2.1)
-      activerecord (= 5.2.2.1)
+    activestorage (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
       marcel (~> 0.3.1)
-    activesupport (5.2.2.1)
+    activesupport (6.0.0.rc1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+      zeitwerk (~> 2.1, >= 2.1.4)
     acts_as_list (0.9.11)
       activerecord (>= 3.0)
     acts_as_silent_list (3.0.0)
@@ -308,13 +346,10 @@ GEM
       tdigest (= 0.1.1)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
-    arel (9.0.0)
     ast (2.4.0)
     attr_required (1.0.1)
     autoprefixer-rails (9.4.7)
       execjs
-    awesome_nested_set (3.1.4)
-      activerecord (>= 4.0.0, < 5.3)
     aws-eventstream (1.0.1)
     aws-partitions (1.136.0)
     aws-sdk-core (3.46.0)
@@ -421,11 +456,8 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
-    delayed_job (4.1.5)
-      activesupport (>= 3.0, < 5.3)
-    delayed_job_active_record (4.1.3)
-      activerecord (>= 3.0, < 5.3)
-      delayed_job (>= 3.0, < 5)
+    delayed_job (4.1.6.beta1)
+      activesupport (>= 3.0, < 6.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
@@ -475,8 +507,6 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
-    friendly_id (5.2.5)
-      activerecord (>= 4.0.0)
     fuubar (2.3.2)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -520,7 +550,7 @@ GEM
     iso8601 (0.12.1)
     jaro_winkler (1.5.2)
     jmespath (1.4.0)
-    jquery-tablesorter (1.25.5)
+    jquery-tablesorter (1.26.1)
       railties (>= 3.2, < 6)
     json (1.8.6)
     json-jwt (1.10.0)
@@ -602,8 +632,7 @@ GEM
       validate_email
       validate_url
       webfinger (>= 1.0.1)
-    openproject-token (1.0.1)
-      activemodel (~> 5.0)
+    openproject-token (1.0.2)
     parallel (1.13.0)
     parallel_tests (2.27.1)
       parallel
@@ -649,7 +678,7 @@ GEM
       pry (>= 0.9.11)
     public_suffix (3.0.3)
     puma (3.12.0)
-    rack (2.0.6)
+    rack (2.0.7)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-attack (5.4.2)
@@ -669,18 +698,20 @@ GEM
     rack_session_access (0.2.0)
       builder (>= 2.0.0)
       rack (>= 1.0.0)
-    rails (5.2.2.1)
-      actioncable (= 5.2.2.1)
-      actionmailer (= 5.2.2.1)
-      actionpack (= 5.2.2.1)
-      actionview (= 5.2.2.1)
-      activejob (= 5.2.2.1)
-      activemodel (= 5.2.2.1)
-      activerecord (= 5.2.2.1)
-      activestorage (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
+    rails (6.0.0.rc1)
+      actioncable (= 6.0.0.rc1)
+      actionmailbox (= 6.0.0.rc1)
+      actionmailer (= 6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      actiontext (= 6.0.0.rc1)
+      actionview (= 6.0.0.rc1)
+      activejob (= 6.0.0.rc1)
+      activemodel (= 6.0.0.rc1)
+      activerecord (= 6.0.0.rc1)
+      activestorage (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
       bundler (>= 1.3.0)
-      railties (= 5.2.2.1)
+      railties (= 6.0.0.rc1)
       sprockets-rails (>= 2.0.0)
     rails-controller-testing (1.0.4)
       actionpack (>= 5.0.1.x)
@@ -696,12 +727,12 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
-    railties (5.2.2.1)
-      actionpack (= 5.2.2.1)
-      activesupport (= 5.2.2.1)
+    railties (6.0.0.rc1)
+      actionpack (= 6.0.0.rc1)
+      activesupport (= 6.0.0.rc1)
       method_source
       rake (>= 0.8.7)
-      thor (>= 0.19.0, < 2.0)
+      thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     raindrops (0.19.0)
     rake (12.3.2)
@@ -889,6 +920,7 @@ GEM
       activerecord (>= 4.2)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    zeitwerk (2.1.6)
 
 PLATFORMS
   ruby
@@ -904,7 +936,7 @@ DEPENDENCIES
   addressable (~> 2.6.0)
   airbrake (~> 8.0.1)
   autoprefixer-rails (~> 9.4.5)
-  awesome_nested_set (~> 3.1.3)
+  awesome_nested_set!
   aws-sdk-core (~> 3.46.0)
   aws-sdk-s3 (~> 1.30.1)
   bcrypt (~> 3.1.6)
@@ -925,7 +957,7 @@ DEPENDENCIES
   dalli!
   database_cleaner (~> 1.6)
   date_validator (~> 0.9.0)
-  delayed_job_active_record (~> 4.1.1)
+  delayed_job_active_record!
   doorkeeper!
   equivalent-xml (~> 0.6)
   escape_utils (~> 1.0)
@@ -934,7 +966,7 @@ DEPENDENCIES
   faker
   flamegraph
   fog-aws
-  friendly_id (~> 5.2.1)
+  friendly_id!
   fuubar (~> 2.3.2)
   gon (~> 6.2.1)
   grape (~> 1.2.3)
@@ -977,7 +1009,7 @@ DEPENDENCIES
   openproject-openid_connect!
   openproject-pdf_export!
   openproject-reporting!
-  openproject-token (~> 1.0.1)
+  openproject-token (~> 1.0.2)
   openproject-translations!
   openproject-two_factor_authentication!
   openproject-webhooks!
@@ -999,7 +1031,7 @@ DEPENDENCIES
   rack-protection (~> 2.0.0)
   rack-test (~> 1.1.0)
   rack_session_access
-  rails (~> 5.2.2.1)
+  rails (~> 6.0.0rc1)
   rails-controller-testing (~> 1.0.2)
   rails_12factor
   rdoc (>= 2.4.2)
