@@ -207,7 +207,7 @@ module API
         def json_key_dependencies
           callable_dependencies = self.class.cached_representer_configuration[:dependencies]
 
-          callable_dependencies&.call
+          instance_exec(&callable_dependencies)
         end
 
         def no_caching?
